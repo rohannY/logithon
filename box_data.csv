@@ -1,0 +1,6 @@
+﻿Cargo number,Length,Width,Height,Weight,Quantitiy ,Allow cargo rotation,Allow cargo stacking ON TOP,Allow cargo stacking UNDER
+1,2,3,4,50,4,No,yes,yes
+2,3,4,3,100,6,No,No,No
+3,3,4,3,4,3,No,yes,yes
+4,3,4,5,100,3,No,yes,yes
+5,3,4,3,50,3,No,yes,yes
