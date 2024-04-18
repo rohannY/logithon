@@ -9,18 +9,18 @@ const router = createBrowserRouter([
       return { Component: AppShell.default };
     },
     children: [
-      // {
-      //   index: true,
-      //   lazy: async () => ({
-      //     Component: (await import("./pages/dashboard/stats/index")).default,
-      //   }),
-      // },
-      // {
-      //   path: "jobs",
-      //   lazy: async () => ({
-      //     Component: (await import("./pages/dashboard/jobs/index")).default,
-      //   }),
-      // },
+      {
+        index: true,
+        lazy: async () => ({
+          Component: (await import("./pages/dashboard/stats/index")).default,
+        }),
+      },
+      {
+        path: "package",
+        lazy: async () => ({
+          Component: (await import("./pages/dashboard/package-details/details")).default,
+        }),
+      },
       // {
       //   path: "post-job",
       //   lazy: async () => ({
