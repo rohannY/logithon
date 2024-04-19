@@ -21,13 +21,13 @@ const router = createBrowserRouter([
           Component: (await import("./pages/dashboard/package-details/index")).default,
         }),
       },
-      // {
-      //   path: "post-job",
-      //   lazy: async () => ({
-      //     Component: (await import("./pages/dashboard/add-jobs/addJobs"))
-      //       .default,
-      //   }),
-      // },
+      {
+        path: "status",
+        lazy: async () => ({
+          Component: (await import("./pages/dashboard/status/index"))
+            .default,
+        }),
+      },
       // {
       //   path: "applied",
       //   lazy: async () => ({
