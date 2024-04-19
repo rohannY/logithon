@@ -18,7 +18,7 @@ const router = createBrowserRouter([
       {
         path: "package",
         lazy: async () => ({
-          Component: (await import("./pages/dashboard/package-details/details")).default,
+          Component: (await import("./pages/dashboard/package-details/index")).default,
         }),
       },
       // {

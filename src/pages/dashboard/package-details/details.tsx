@@ -14,7 +14,6 @@ import {
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -23,19 +22,32 @@ import {
 import { Input } from "@/components/ui/input";
 
 const formSchema = z.object({
-  username: z.string(),
+  label: z.string(),
+  weight: z.string(),
+  height: z.string(),
+  width: z.string(),
+  volume: z.string(),
+  length: z.string(),
+  quantity: z.string(),
+  cargoType: z.enum(["Fragile", "Non Fragile"]),
+  allowStacking: z.boolean(),
+  coldStorage: z.boolean(),
 });
 
-export default function Details() {
+interface DetailsFormProps {
+  onSubmit: (data: any) => void;
+}
+
+const detailsData: React.FC<DetailsFormProps> = ({ onSubmit }) => {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      username: "",
+      label: "",
+      allowStacking: false,
+      coldStorage: false,
     },
   });
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
-  }
+
   return (
     <>
       <div className="w-screen h-screen p-10">
@@ -51,7 +63,7 @@ export default function Details() {
                 <div className="flex flex-row space-x-4">
                   <FormField
                     control={form.control}
-                    name="username"
+                    name="label"
                     render={({ field }) => (
                       <FormItem>
                         <FormLabel>Label</FormLabel>
@@ -65,7 +77,7 @@ export default function Details() {
 
                   <FormField
                     control={form.control}
-                    name="username"
+                    name="weight"
                     render={({ field }) => (
                       <FormItem>
                         <FormLabel>Weight</FormLabel>
@@ -79,7 +91,7 @@ export default function Details() {
 
                   <FormField
                     control={form.control}
-                    name="username"
+                    name="volume"
                     render={({ field }) => (
                       <FormItem>
                         <FormLabel>Volume</FormLabel>
@@ -95,7 +107,7 @@ export default function Details() {
                 <div className="flex flex-row space-x-4">
                   <FormField
                     control={form.control}
-                    name="username"
+                    name="height"
                     render={({ field }) => (
                       <FormItem>
                         <FormLabel>Height</FormLabel>
@@ -109,7 +121,7 @@ export default function Details() {
 
                   <FormField
                     control={form.control}
-                    name="username"
+                    name="length"
                     render={({ field }) => (
                       <FormItem>
                         <FormLabel>Length</FormLabel>
@@ -123,7 +135,7 @@ export default function Details() {
 
                   <FormField
                     control={form.control}
-                    name="username"
+                    name="width"
                     render={({ field }) => (
                       <FormItem>
                         <FormLabel>Width</FormLabel>
@@ -138,7 +150,7 @@ export default function Details() {
                 <div className="flex flex-row space-x-4">
                   <FormField
                     control={form.control}
-                    name="username"
+                    name="quantity"
                     render={({ field }) => (
                       <FormItem className="w-1/6">
                         <FormLabel>Quantity</FormLabel>
@@ -151,7 +163,7 @@ export default function Details() {
                   />
                   <FormField
                     control={form.control}
-                    name="email"
+                    name="cargoType"
                     render={({ field }) => (
                       <FormItem>
                         <FormLabel>Select Cargo Type</FormLabel>
@@ -165,10 +177,8 @@ export default function Details() {
                             </SelectTrigger>
                           </FormControl>
                           <SelectContent className="font-Geist">
-                            <SelectItem value="m@example.com">
-                              Fragile
-                            </SelectItem>
-                            <SelectItem value="m@support.com">
+                            <SelectItem value="Fragile">Fragile</SelectItem>
+                            <SelectItem value="Non Fragile">
                               Non Fragile
                             </SelectItem>
                           </SelectContent>
@@ -182,9 +192,9 @@ export default function Details() {
 
                 <FormField
                   control={form.control}
-                  name="username"
+                  name="allowStacking"
                   render={({ field }) => (
-                    <FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-md p-2 shadow">
+                    <FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-md p-2">
                       <div className="space-y-1 leading-none">
                         <FormLabel>Allow Stacking</FormLabel>
                       </div>
@@ -200,9 +210,9 @@ export default function Details() {
 
                 <FormField
                   control={form.control}
-                  name="username"
+                  name="coldStorage"
                   render={({ field }) => (
-                    <FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-md p-2 shadow">
+                    <FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-md p-2">
                       <div className="space-y-1 leading-none">
                         <FormLabel>Cold Storage</FormLabel>
                       </div>
@@ -216,11 +226,11 @@ export default function Details() {
                   )}
                 />
                 <div className="w-1/2 space-x-2 flex">
-                  <Button type="submit" className="w-1/2">
-                    Next
+                  <Button variant={"outline"} className="w-1/2">
+                    Reset
                   </Button>
                   <Button type="submit" className="w-1/2">
-                    Reset
+                    Next
                   </Button>
                 </div>
               </form>
@@ -230,4 +240,6 @@ export default function Details() {
       </div>
     </>
   );
-}
+};
+
+export default detailsData;
