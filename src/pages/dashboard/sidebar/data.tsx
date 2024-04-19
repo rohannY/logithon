@@ -47,13 +47,13 @@ export const sidelinks: SideLink[] = [
     href: "/dashboard/profiles",
     icon: <PersonIcon />,
   },
-  // {
-  //   role: "employer",
-  //   title: "Post Jobs",
-  //   label: "",
-  //   href: "/dashboard/post-job",
-  //   icon: <IconHexagonNumber1 size={18} />,
-  // },
+  {
+    role: "",
+    title: "Supplier",
+    label: "",
+    href: "/dashboard/supplier",
+    icon: <IconHexagonNumber1 size={18} />,
+  },
   // {
   //   role: "employer",
   //   title: "View Application",

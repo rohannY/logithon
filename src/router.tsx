@@ -18,22 +18,38 @@ const router = createBrowserRouter([
       {
         path: "package",
         lazy: async () => ({
-          Component: (await import("./pages/dashboard/package-details/index")).default,
+          Component: (await import("./pages/dashboard/package-details/index"))
+            .default,
         }),
       },
       {
         path: "status",
         lazy: async () => ({
-          Component: (await import("./pages/dashboard/status/index"))
-            .default,
+          Component: (await import("./pages/dashboard/receiver/index")).default,
         }),
       },
-      // {
-      //   path: "applied",
-      //   lazy: async () => ({
-      //     Component: (await import("./pages/dashboard/applied/index")).default,
-      //   }),
-      // },
+      {
+        path: "supplier",
+        lazy: async () => ({
+          Component: (await import("./pages/dashboard/supplier/index")).default,
+          routes: [
+            {
+              path: "details",
+              lazy: async () => ({
+                Component: (await import("./pages/dashboard/supplier/details"))
+                  .default,
+              }),
+            },
+          ],
+        }),
+      },
+      {
+        path: "receiver",
+        lazy: async () => ({
+          Component: (await import("./pages/dashboard/receiver/index")).default,
+        }),
+      },
+
       // {
       //   path: "profiles",
       //   lazy: async () => ({

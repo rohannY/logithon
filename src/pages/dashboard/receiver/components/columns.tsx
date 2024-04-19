@@ -1,12 +1,8 @@
 //Column Header File
 
 import { ColumnDef } from "@tanstack/react-table";
-
 import { DataTableColumnHeader } from "./data-table-column-header";
-
-import { statuses } from "../data/data";
 import { Task } from "../data/schema";
-import { Badge } from "@/components/ui/badge";
 
 export const columns: ColumnDef<Task>[] = [
   {
@@ -97,36 +93,6 @@ export const columns: ColumnDef<Task>[] = [
         <div className="flex space-x-2">
           <span className="max-w-30 truncate sm:max-w-72 md:max-w-[31rem]">
             {row.getValue("delivery")}
-          </span>
-        </div>
-      );
-    },
-  },
-  {
-    accessorKey: "recipient",
-    header: ({ column }) => (
-      <DataTableColumnHeader column={column} title="Recipient" />
-    ),
-    cell: ({ row }) => {
-      return (
-        <div className="flex space-x-2">
-          <span className="max-w-30 truncate sm:max-w-72 md:max-w-[31rem]">
-            {row.getValue("recipient")}
-          </span>
-        </div>
-      );
-    },
-  },
-  {
-    accessorKey: "supplier",
-    header: ({ column }) => (
-      <DataTableColumnHeader column={column} title="Supplier" />
-    ),
-    cell: ({ row }) => {
-      return (
-        <div className="flex space-x-2">
-          <span className="max-w-30 truncate sm:max-w-72 md:max-w-[31rem]">
-            {row.getValue("supplier")}
           </span>
         </div>
       );

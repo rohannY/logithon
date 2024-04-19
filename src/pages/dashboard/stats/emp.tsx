@@ -1,3 +1,4 @@
+import { Badge } from "@/components/ui/badge";
 import {
   Card,
   CardContent,
@@ -13,7 +14,6 @@ import { Layout, LayoutBody, LayoutHeader } from "../ui/layout";
 import { Overview } from "./components/overview";
 
 export default function EmpDashboard() {
-
   return (
     <>
       <Layout>
@@ -27,6 +27,32 @@ export default function EmpDashboard() {
         {/* ===== Main ===== */}
         <LayoutBody className="space-y-4">
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            <Card>
+              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                <CardTitle className="text-md font-semibold">
+                  Connect Wallet
+                </CardTitle>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  className="h-4 w-4 text-muted-foreground"
+                >
+                  <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+                </svg>
+              </CardHeader>
+              <CardContent>
+                <div className="flex space-x-2 p-2 items-center">
+                  <div className="w-5 h-5 bg-red-600 rounded-2xl"></div>
+                  <p className="text-[14px] text-gray-800">Not Connected</p>
+                </div>
+              </CardContent>
+            </Card>
+
             <Card>
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                 <CardTitle className="text-sm font-medium">
